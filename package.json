@@ -1,0 +1,22 @@
+{
+  "name": "gallaborate",
+  "version": "1.0.0",
+  "description": "This is the final project by Josh McBroom for General Assembly's Web Development Immersive (GA-SEA-WDI-08). GAllaborate is a MEAN stack application built using JavaScript, Node.js. Express.js, Angular.js, Bootstrap, Mongoose, . It was built in August 2016.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dropTheNon/gallaborate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dropTheNon/gallaborate/issues"
+  },
+  "homepage": "https://github.com/dropTheNon/gallaborate#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
