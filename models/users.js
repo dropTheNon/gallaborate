@@ -8,7 +8,7 @@ var userSchema = new mongoose.Schema({
   github_url: String,
   dribble_url: String,
   behance_url: String,
-  about_me: String
+  aboutMe: String
 });
 
 userSchema.methods.sayHello = function() {

@@ -8,7 +8,8 @@ var postSchema = new mongoose.Schema({
   user_aboutMe: { type: String, required: true, ref: 'User' },
   description: { type: String, required: true },
   video_url: String,
-  image_url: String
+  image_url: String,
+  tag_ids: [ { type: mongoose.Schema.ObjectId, ref: 'Tag' } ]
 });
 
 var Post = mongoose.model('Post', postSchema);
