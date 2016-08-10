@@ -33,5 +33,5 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', funct
 }]);
 
 myApp.controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
-
+  
 }]);
