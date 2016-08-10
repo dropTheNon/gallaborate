@@ -8,11 +8,12 @@ var app = express();
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/gallaborate');
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Controllers
 app.use('/users', require('./controllers/user'));
+app.use('/posts', require('./controllers/post'));
 
 var josh = new User({
   name: 'Josh',

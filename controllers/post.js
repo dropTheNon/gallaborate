@@ -1,12 +1,13 @@
 var express = require('express');
-var User = require('../models/users');
+var Post = require('../models/posts');
 var router = express.Router();
 
-router.route('/create')
+router.route('/new')
   .post(function(req, res) {
-    User.create(req.body, function(err, user) {
+    console.log("req: ", req);
+    Post.create(req.body, function(err, post) {
       if (err) return res.status(500).send(err);
-      return res.send(user);
+      return res.send(post);
     });
   });
 
