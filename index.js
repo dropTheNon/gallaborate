@@ -4,12 +4,15 @@ var path = require('path');
 var User = require('./models/users.js');
 var app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
-
 // Mongoose
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/gallaborate');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Controllers
+app.use('/users', require('./controllers/user'));
 
 var josh = new User({
   name: 'Josh',

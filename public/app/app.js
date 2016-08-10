@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ui.router']);
+var myApp = angular.module('myApp', ['Ctrls', 'ui.router']);
 
 myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 
@@ -32,6 +32,6 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', funct
   $urlRouterProvider.otherwise('/404');
 }]);
 
-myApp.controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
-  
-}]);
+// myApp.controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
+
+// }]);
