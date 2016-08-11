@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['Ctrls', 'ui.router', 'auth0', 'angular-storage', 'angular-jwt', 'ngRoute']);
+var app = angular.module('myApp', ['Ctrls', 'ui.router']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$routeProvider', 'authProvider', '$httpProvider', 'jwtInterceptorProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $routeProvider, authProvider, $httpProvider, jwtInterceptorProvider) {
 

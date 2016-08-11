@@ -1,7 +1,24 @@
 <h1>Main Page</h1>
-<a href="/users/signup" ng-click="auth.signup()" class="btn btn-primary btn-lg btn-block">Signup</a>
-<a href="/users/login" ng-click="auth.signin()" class="btn btn-primary btn-lg btn-block">Login</a>
-<a href="/users/logout">Logout</a>
+<!-- <a href="/users/signup" ng-click="auth.signup()" class="btn btn-primary btn-lg btn-block">Signup</a> -->
+<!-- <a href="/users/login" ng-click="auth.signin()" class="btn btn-primary btn-lg btn-block">Login</a>
+<a href="/users/logout">Logout</a> -->
+
+<!-- Auth0 script and button to open sign-in modal -->
+<script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+<script type="text/javascript">
+  var lock = new Auth0Lock('W3siZnARC7cNY3tErXI3vyTXHXVKLqA9', 'mean-hackathon.auth0.com', {
+    auth: {
+      redirectUrl: 'http://localhost:3000/callback',
+      responseType: 'code',
+      params: {
+        scope: 'openid email'
+      }
+    }
+  });
+</script>
+
+<button onclick="lock.show();">Login</button>
+
 <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Sign-up Modal</button> -->
 
 <!-- Modal! -->
