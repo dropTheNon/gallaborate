@@ -16,6 +16,13 @@ angular.module('Ctrls', ['ui.router'])
 }])
 .controller('LoginCtrl', ['$scope', 'auth', function($scope, auth) {
   $scope.auth = auth;
+
+  $scope.logout = function() {
+    auth.signout();
+    store.remove('profile');
+    store.remove('token');
+    $location.path('/login');
+  };
 }])
 .controller('PostCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.post = {
@@ -39,4 +46,12 @@ angular.module('Ctrls', ['ui.router'])
     });
   }
 
+}])
+.controller('UserCtrl', ['$scope', 'auth', function($scope, auth) {
+  // Lets users reset their password
+  $scope.resetPassword = function() {
+    auth.reset({
+      connection: 'Username-Password-Authentication'
+    });
+  };
 }]);

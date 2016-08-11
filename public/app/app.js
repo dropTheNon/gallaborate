@@ -46,7 +46,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$route
 
   authProvider.init({
     domain: 'mean-hackathon.auth0.com',
-    clientID: 'ZWivMidCimKqXM2Y7braT2p0VWmPYbvS',
+    clientID: 'W3siZnARC7cNY3tErXI3vyTXHXVKLqA9S',
     loginUrl: '/users/login'
   });
 
@@ -71,11 +71,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$route
   $urlRouterProvider.otherwise('/404');
 }]);
 
-app.run(['auth', function(auth) {
-  // This hooks all auth events to check everything as soon as the app starts
-  auth.hookEvents();
-}]);
-
 // Angular HTTP interceptor function
 jwtInterceptorProvider.tokenGetter = ['store', function(store) {
   return store.get('token');
@@ -83,6 +78,29 @@ jwtInterceptorProvider.tokenGetter = ['store', function(store) {
 
 // Push interceptor function to $httpProvider's interceptors
 $httpProvider.interceptors.push('jwtInterceptor');
+
+app.run(['auth', function(auth) {
+  // This hooks all auth events to check everything as soon as the app starts
+  auth.hookEvents();
+}]);
+
+app.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$location',
+  function($rootScope, auth, store, jwtHelper, $location) {
+    $rootScope.$on('$locationChangeStart', function() {
+      var token = store.get('token');
+      if (token) {
+        if (!jwtHelper.isTokenExpired(token)) {
+          if (!auth.isAuthenticated) {
+            // Re-authenticate user if token is valid
+            auth.authenticate(store.get('profile'), token);
+          }
+        } else {
+          // Either show the login page or use the refresh token to get a new idToken
+          $location.path('/');
+        }
+      }
+    });
+  }]);
 
 // app.controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
 
