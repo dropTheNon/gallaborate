@@ -1,5 +1,5 @@
 angular.module('Ctrls', ['ui.router'])
-.controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
+.controller('SignupCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.user = {
     email: '',
     name: '',
@@ -13,6 +13,9 @@ angular.module('Ctrls', ['ui.router'])
       alert("An error has occurred. That's a bummer...");
     });
   }
+}])
+.controller('LoginCtrl', ['$scope', 'auth', function($scope, auth) {
+  $scope.auth = auth;
 }])
 .controller('PostCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.post = {
