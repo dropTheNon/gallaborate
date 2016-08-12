@@ -1,0 +1,10 @@
+<div class="transparentWhite">
+  <div class="transparentWhiteContent">
+    <img src="{{post.image_url}}" ng-if="post.image_url != ''">
+    <h2>{{post.title}}</h2>
+    <h4>{{post.iAmA}}</h4>
+    <hr />
+    <p>{{post.description}}</p>
+    <a href="{{post.video_url}}" ng-if="post.video_url != ''">Video link</a>
+  </div>
+</div>

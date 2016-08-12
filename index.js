@@ -13,16 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Controllers
 app.use('/users', require('./controllers/user'));
-app.use('/posts', require('./controllers/post'));
-
-var josh = new User({
-  name: 'Josh',
-  email: 'josh@test.com',
-});
-
-// app.get('/', function(req, res) {
-//   res.send(josh.sayHello());
-// });
+app.use('/api/posts', require('./controllers/post'));
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));

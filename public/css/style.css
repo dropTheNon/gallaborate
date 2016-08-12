@@ -1,3 +1,51 @@
+body {
+  background-color: black;
+}
+
 h1 {
   color: green;
+}
+
+.hero {
+  height: 750px;
+  background-image: url('../img/GAllaboration.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  /*position: relative;*/
+  padding-top: 5%;
+}
+
+.transparentWhite {
+  background-color: rgba(255, 255, 255, .75);
+  border-radius: 5px;
+}
+
+.transparentWhite h1 {
+  text-align: center;
+}
+
+.transparentWhiteContent {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.notModal {
+  display: center;
+  /*position: absolute;*/
+  margin: 0 auto;
+  border-radius: 5px;
+  width: 325px;
+  height: 175px;
+  background-color: rgba(255, 255, 255, .75);
+  padding: 0, 40px;
+}
+
+.centered {
+  text-align: center;
+  margin: center;
+}
+
+.btnOffset {
+  margin-top: -0.5em;
 }

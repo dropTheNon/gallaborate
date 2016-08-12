@@ -10,12 +10,17 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', funct
   .state('posts', {
     url: '/posts',
     templateUrl: 'app/views/posts.html',
+    controller: 'PostsCtrl'
+  })
+  .state('post', {
+    url: '/posts/:id',
+    templateUrl: 'app/views/post.html',
     controller: 'PostCtrl'
   })
   .state('newpost', {
     url: '/posts/new',
     templateUrl: 'app/views/newpost.html',
-    controller: 'PostCtrl'
+    controller: 'NewPostCtrl'
   })
   .state('profile', {
     url: '/users/:id',

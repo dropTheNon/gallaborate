@@ -1,4 +1,4 @@
-angular.module('Ctrls', ['ui.router'])
+angular.module('Ctrls', ['ui.router', 'Services'])
 .controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.user = {
     email: '',
@@ -14,10 +14,11 @@ angular.module('Ctrls', ['ui.router'])
     });
   }
 }])
-.controller('PostCtrl', ['$scope', '$http', function($scope, $http) {
+.controller('NewPostCtrl', ['$scope', '$location', 'Post', function($scope, $location, Post) {
+
   $scope.post = {
     // User_id hard-coded for now, for testing - REMOVE BEFORE PRODUCTION
-    user_id: '57ab85fd350dee72d0d22cce',
+    // user_id: '57ab85fd350dee72d0d22cce',
     title: '',
     iAmA: '',
     description: '',
@@ -27,13 +28,33 @@ angular.module('Ctrls', ['ui.router'])
   }
 
   $scope.createPost = function() {
-    $http.post('/posts/new', $scope.post).then(function success(res) {
-      console.log("res: ", res);
-      console.log("success!");
-      // $scope.posts.push(res.data);
-    }, function error(err) {
-      alert("An error has occurred. That's a bummer...");
+    Post.save($scope.post, function success(data) {
+      $location.path('/posts');
+    }, function error(data) {
+      console.log(data);
     });
-  }
+  };
+}])
+.controller('PostCtrl', ['$scope', '$stateParams', 'Post', function($scope, $stateParams, Post) {
 
-}]);
+  $scope.post = {};
+
+  Post.query({ _id: $stateParams.id }, function success(data) {
+    console.log($stateParams.id);
+    console.log(data);
+    $scope.post = data;
+  }, function error(data) {
+    console.log(data);
+  });
+  
+}])
+.controller('PostsCtrl', ['$scope', 'Post', function($scope, Post) {
+  $scope.allPosts = [];
+  
+  Post.query(function success(data) {
+    $scope.allPosts = data;
+    console.log(data);
+  }, function error(data) {
+    console.log(data);
+  });
+}])

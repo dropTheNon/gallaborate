@@ -1,25 +1,29 @@
-<h1>Post a Project</h1>
-<hr />
-<p>All projects listed must have a title, description, and "IAmA" ("I am a _____, seeking a ______, to ____________" - for example, "I am a developer, seeking a designer, to launch my Tinder-for-dogs app").</p>
-<p>Add tags to your project to help it get found more easily!</p>
-<p> * denotes required field.</p>
-<hr />
-<form class="form-group" ng-submit="createPost()">
-  <label for="title">Project Title *</label>
-  <input class="form-control" type="text" name="title" ng-model="post.title">
-  <label for="iAmA">I Am A... *</label>
-  <input class="form-control" type="text" name="iAmA" ng-model="post.iAmA">
-  <label for="description">Project Description *</label>
-  <input class="form-control" type="text" name="description" ng-model="post.description">
-  <label for="videoUrl">Video Link</label>
-  <input class="form-control" type="text" name="videoUrl" ng-model="post.video_url">
-  <label for="imageUrl">Image Link</label>
-  <input class="form-control" type="text" name="imageUrl" ng-model="post.image_url">
-  <br />
-  <label for="tags">Tags:</label>
-  <br />
-  <label class="checkbox-inline"><input type="checkbox" value="locationOnly">My Location Only</label>
-  <label class="checkbox-inline"><input type="checkbox" value="lt2weeks">< 2 weeks</label> 
-  <br />
-  <input type="submit" class="btn btn-success form-control" ng-submit="createPost()" Create Post>
-</form>
+<div class="transparentWhite">
+  <div class="transparentWhiteContent">
+    <h1>Post a Project</h1>
+    <hr />
+    <p>All projects listed must have a title, description, and "IAmA" ("I am a _____, seeking a ______, to ____________" - for example, "I am a developer, seeking a designer, to launch my Tinder-for-dogs app").</p>
+    <p>Add tags to your project to help it get found more easily!</p>
+    <p> * denotes required field.</p>
+    <hr />
+    <form class="form-group" ng-submit="createPost()">
+      <label for="title">Project Title *</label>
+      <input class="form-control" type="text" name="title" ng-model="post.title">
+      <label for="iAmA">I Am A... *</label>
+      <input class="form-control" type="text" name="iAmA" ng-model="post.iAmA">
+      <label for="description">Project Description *</label>
+      <input class="form-control" type="text" name="description" ng-model="post.description">
+      <label for="videoUrl">Video Link</label>
+      <input class="form-control" type="text" name="videoUrl" ng-model="post.video_url">
+      <label for="imageUrl">Image Link</label>
+      <input class="form-control" type="text" name="imageUrl" ng-model="post.image_url">
+      <br />
+      <label for="tags">Tags:</label>
+      <br />
+      <label class="checkbox-inline"><input type="checkbox" value="locationOnly">My Location Only</label>
+      <label class="checkbox-inline"><input type="checkbox" value="lt2weeks">< 2 weeks</label> 
+      <br />
+      <input type="submit" class="btn btn-success form-control" ng-submit="createPost()" Create Post>
+    </form>
+  </div>
+</div>
