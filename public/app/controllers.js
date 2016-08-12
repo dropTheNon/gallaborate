@@ -39,7 +39,7 @@ angular.module('Ctrls', ['ui.router', 'Services'])
 
   $scope.post = {};
 
-  Post.query({ _id: $stateParams.id }, function success(data) {
+  Post.get({ id: $stateParams.id }, function success(data) {
     console.log($stateParams.id);
     console.log(data);
     $scope.post = data;
